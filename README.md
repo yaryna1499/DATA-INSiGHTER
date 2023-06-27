@@ -4,6 +4,6 @@ Tech stack:<br>
 Web:<br>
 - Django
 - Django REST Framework
-- Bootstrap template
+- Bootstrap template<br>
   DBs:<br>
 - ///
