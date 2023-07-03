@@ -1,0 +1,16 @@
+.sidebar {
+    background-color: #b10b4e;
+    color: #fff;
+    width: 35%;
+    float: left;
+    height: 100vh;
+  }
+  
+  .main-content {
+    margin-left: 15%;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  
