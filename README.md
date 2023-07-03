@@ -16,8 +16,3 @@ Web:<br>
 DBs:<br>
 - ///
 
-
-## DEVELOPMENT PROCESS
-
-git remote add orignin <dev_branch_name> <link>
-git push origin <dev_branch_name>
