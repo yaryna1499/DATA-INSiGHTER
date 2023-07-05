@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% block content %}
+<div>
+    <h1>Write text on your image</h1>
+      <form method="POST" enctype="multipart/form-data" action="{% url 'process_image' %}">
+        <label>Text for your own picture:</label>
+        {% csrf_token %}
+        <textarea type="text" name="user_text" rows="1" cols="15"></textarea>
+        <br>
+      <input type="file" name="image" value="{% url 'process_image' %}">
+      <button type="submit">Make picture</button>
+      </form>
+</div>
+{% endblock %}
+
+ 
+ 
