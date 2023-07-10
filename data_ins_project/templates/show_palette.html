@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% block content %}
+<div>
+<p>Here u can see the result:</p>
+<img src="data:image/png;base64,{{image|safe}}" style="width: 400px; height: auto;" alt="Image"/>
+<br>
+<br>
+
+
+<div id="palette-container"></div>
+</div>
+
+
+<script>
+    var palette = JSON.parse('{{ palette | safe }}');
+
+    var paletteContainer = document.getElementById('palette-container');
+
+    // Loop through the palette array and create HTML elements for each color
+    for (var i = 0; i < palette.length; i++) {
+        var color = palette[i];
+
+        var colorDiv = document.createElement('div');
+        colorDiv.style.display = 'flex';
+        colorDiv.style.alignItems = 'center';
+        colorDiv.style.fontFamily = 'monospace';
+
+        var colorText = document.createElement('span');
+        colorText.textContent = color;
+        colorText.style.marginRight = '10px';
+
+        var colorBlock = document.createElement('span');
+        colorBlock.textContent = '████████';
+        colorBlock.style.color = color;
+
+        colorDiv.appendChild(colorText);
+        colorDiv.appendChild(colorBlock);
+        paletteContainer.appendChild(colorDiv);
+    }
+</script>
+
+{% endblock %}

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main',
     'bootstrap5',
     'text_cutter',
+    'palette_generator',
 ]
 
 MIDDLEWARE = [

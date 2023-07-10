@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% block content %}
+<div>
+    <h1>Upload your image and get the hex-palette</h1>
+      <form method="POST" enctype="multipart/form-data" action="{% url 'get_palette' %}">
+        {% csrf_token %}
+      <input type="file" name="image" value="{% url 'get_palette' %}">
+      <button type="submit">Generate</button>
+      </form>
+</div>
+{% endblock %}
+
+ 
+ 

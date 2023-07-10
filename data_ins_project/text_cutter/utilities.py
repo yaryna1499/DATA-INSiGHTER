@@ -2,6 +2,16 @@
 from PIL import Image, ImageDraw, ImageFont
 import io
 import base64
+import numpy as np
+import webcolors
+from collections import Counter
+
+
+"""
+TODO:1)написати універсальну відкривачку для різних файлів
+TODO:2)переписати DataSaver, щоб наслідував від io.BytesIO
+3) написати універсальний клас Downloader
+"""
 
 DEFAULT_FONT = 'LiberationSans-Bold.ttf'
 
@@ -68,12 +78,15 @@ default_cutter = Cutter()
 
 class DataSaver(object):
     """
-    1)gets PIL Image object and saves it to buffer
+    1)gets object and saves it to buffer
     2)returns encoded image data
     """
     def __init__(self, obj):
         self.obj = obj
         
+
+
+    # виглядає трохи кончено, переписати краще
     @property
     def encoded_image_data(self):
         buffer = io.BytesIO()
@@ -84,5 +97,27 @@ class DataSaver(object):
         image_data = buffer.getvalue()
         encoded_image_data = base64.b64encode(image_data).decode('utf-8')
         return encoded_image_data
+    
+
+
+class Palette(object):
+
+    def __init__(self, image_array: np.ndarray) -> None:
+        self.image_data = image_array
+
+
+    def generate(self):
+        palette_hex_array = []
+        first_channel, second_channel, third_channel = self.image_data[:,:,0], self.image_data[:,:,1], self.image_data[:,:,2]
+
+        median1, median2, median3 = np.median(first_channel, axis=1), np.median(second_channel, axis=1), np.median(third_channel, axis=1)
+
+        for i in range(median1.shape[0]):
+            hex_pixel_code = webcolors.rgb_to_hex((round(median1[i]), round(median2[i]), round(median3[i])))
+            palette_hex_array.append(hex_pixel_code)
+
+        common_colors = Counter(palette_hex_array)
+        common = sorted(common_colors.most_common(150)[::-1])
+        return common
         
    
