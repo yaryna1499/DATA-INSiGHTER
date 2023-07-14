@@ -1,30 +1,21 @@
 from django.shortcuts import render, redirect
-from .utilities import default_cutter, DataSaver
-from PIL import Image
-import io
+from utilities import Saver, openPIL, default_cutter
 
-"""
-TODO:
-1) user can choose oriebtation of the image
-2) user can choose font
-3) user can choose the size of the font
-4) user can download image in defferent formats
-5) to add 'go back' button
-"""
 
 
 def process_image(request):
     if request.method == 'POST':
         user_text = request.POST.get('user_text')
-        uploaded_file = request.FILES.get('image')
+        uploaded_file = request.FILES.get('image') #<class 'django.core.files.uploadedfile.TemporaryUploadedFile'>
 
         if uploaded_file:
-            file_content = uploaded_file.read()
-            buffer = io.BytesIO(file_content)
-            with Image.open(buffer) as image:
+            file_content = uploaded_file.read() #<class 'bytes'>
+            file_buffered = Saver(file_content)
+            with openPIL(file_buffered) as image:
                 new_image = default_cutter.text_cutout(image, user_text)
-                saved_image = DataSaver(new_image)
-            image_data = saved_image.encoded_image_data
+                saver = Saver()
+                new_image.save(saver, format='PNG')
+            image_data = saver.encoded_file
             request.session['image_data'] = image_data
             return redirect('show_image')
     return redirect('text_cutter')
