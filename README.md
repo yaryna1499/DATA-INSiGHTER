@@ -2,19 +2,25 @@
 
 Collect quick insights from any type of data!
 
-## Project Purpose
+## Project Description
 
-The main purpose of this pet project is to learn how to deal with integrations of smaller applications into one big project.
+Data Insighter is a web application that provides a variety of tools for extracting insights from data, such as images and text. It is still under development, but it already has a forum that allows users to discuss topics with other data enthusiasts. The project was created as a way to showcase my back-end and data science skills and to build a community of data lovers.
 
 ## Tech Stack
 
-- Web:
-  - Django
-  - Django REST Framework
-  - Bootstrap template
-
+- Backend:
+    - Django+Django REST Framework
 - Databases:
-  - ///
+    - PostgreSQL
+- Data science:
+    - NumPy
+    - Pandas
+    - Plotly
+    - SciKit-Image
+    - Pillow
+    - Statistics
+- Frontend:
+    - Bootstrap
 
 ## Basic Workflow
 
