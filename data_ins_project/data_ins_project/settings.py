@@ -26,7 +26,19 @@ SECRET_KEY = 'django-insecure-&%3ju0jp$vbq*wd+0d*=9&d%so5ej6h2&23cxl-j1v73q%n(h&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+if DEBUG:
+    # Development static files configuration
+    STATIC_URL = '/static/'
+    STATIC_ROOT = BASE_DIR / 'static'
+    # Some other development settings
+    ALLOWED_HOSTS = ['*']
+    CSRF_TRUSTED_ORIGINS = ["http://localhost:8000", "http://0.0.0.0:8000"]
+    CSRF_COOKIE_DOMAIN = ''
+else:
+    # Static files (CSS, JavaScript, Images)
+    # https://docs.djangoproject.com/en/4.2/howto/static-files/
+    # Some other production settings
+    ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -41,6 +53,8 @@ INSTALLED_APPS = [
     'main',
     'text_cutter',
     'palette_generator',
+    'rest_framework',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -117,18 +131,16 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-STATIC_URL = 'static/'
-
-STATIC_ROOT = BASE_DIR / 'static'
-
-# STATICFILES_DIRS = [
-#     BASE_DIR / "static",
-# ]
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
