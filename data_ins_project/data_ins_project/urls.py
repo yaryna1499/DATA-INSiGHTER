@@ -24,5 +24,6 @@ urlpatterns = [
     path('', include('main.urls')),
     path('', include('text_cutter.urls')),
     path('', include('palette_generator.urls')),
+    path("api/", include("api.urls")),
 ]
 

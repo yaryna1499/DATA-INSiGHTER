@@ -32,6 +32,7 @@ if DEBUG:
     STATIC_ROOT = BASE_DIR / 'static'
     # Some other development settings
     ALLOWED_HOSTS = ['*']
+    CSRF_TRUSTED_ORIGINS = ["http://localhost:8000", "http://0.0.0.0:8000"]
     CSRF_COOKIE_DOMAIN = ''
 else:
     # Static files (CSS, JavaScript, Images)
@@ -52,6 +53,8 @@ INSTALLED_APPS = [
     'main',
     'text_cutter',
     'palette_generator',
+    'rest_framework',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +135,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
