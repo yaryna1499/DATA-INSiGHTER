@@ -24,5 +24,5 @@ urlpatterns = [
     path('', include('main.urls')),
     path('', include('text_cutter.urls')),
     path('', include('palette_generator.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
 
