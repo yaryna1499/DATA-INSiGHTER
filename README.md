@@ -33,7 +33,7 @@ Follow the steps below to contribute to this project:
    <code><strong style="color: red;">git checkout your_branch_name</strong></code>
 
 3. Make sure you are up to date with the latest changes from the remote repository:
-   <code><strong style="color: red;">git pull origin master</strong></code>
+   <code><strong style="color: red;">git pull origin your_branch_name</strong></code>
 
 4. Instead of using `git add .`, only add the specific folder you made changes to:
    <code><strong style="color: red;">git add your_folder_name</strong></code>
