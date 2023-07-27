@@ -41,6 +41,10 @@ def read_as_np(file):
 
     
 
+def url_to_np(content):
+    buffered_file = Saver(content)
+    return read_as_np(buffered_file)
+
 
 class Downloader:
     pass

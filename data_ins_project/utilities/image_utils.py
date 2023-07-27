@@ -68,8 +68,9 @@ default_cutter = Cutter()
 
 class Palette(object):
 
-    def __init__(self, image_array: np.ndarray) -> None:
+    def __init__(self, image_array: np.ndarray, palette_size=300) -> None:
         self.image_data = image_array
+        self.palette_size = palette_size
 
 
     def generate(self):
@@ -84,7 +85,7 @@ class Palette(object):
 
 
         common_colors = Counter(palette_hex_array)
-        common = sorted(common_colors.most_common(300)[::-1])
+        common = sorted(common_colors.most_common(self.palette_size)[::-1])
         return common
     
 
