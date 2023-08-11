@@ -1,15 +1,19 @@
 {% extends 'index.html' %}
 {% block content %}
-<div>
-<p>Here u can see the result:</p>
-<img src="data:image/png;base64,{{image|safe}}" style="width: 400px; height: auto;" alt="Image"/>
 <br>
-<br>
-
-
-<div id="palette-container"></div>
+<hr>
+<div class="card-body">
+    <div class="card border-primary mb-3" style="max-width: 45%; margin: 0 auto; border-color: #2f6999;">
+        <div class="card-header bg-primary text-white">Image Result</div>
+        <div class="card-body">
+            <p>Here you can see the result:</p>
+            <img src="data:image/png;base64,{{image|safe}}" style="width: 100%; height: auto;" alt="Image"/>
+            <br>
+            <br>
+            <div class="mt-4" id="palette-container"></div>
+        </div>
+    </div>
 </div>
-
 
 <script>
     var palette = JSON.parse('{{ palette | safe }}');
@@ -24,6 +28,7 @@
         colorDiv.style.display = 'flex';
         colorDiv.style.alignItems = 'center';
         colorDiv.style.fontFamily = 'monospace';
+        colorDiv.style.marginBottom = '8px';
 
         var colorText = document.createElement('span');
         colorText.textContent = color;
@@ -38,5 +43,9 @@
         paletteContainer.appendChild(colorDiv);
     }
 </script>
+
+<style>
+    /* Ваші стилі можна додати тут */
+</style>
 
 {% endblock %}
