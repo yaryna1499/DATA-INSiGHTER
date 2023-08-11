@@ -1,0 +1,18 @@
+{
+  "Web Development": {
+    "Stack 1": ["Python", "Django", "MySQL", "HTML", "CSS", "JavaScript"],
+    "Stack 2": ["JavaScript", "React", "Node.js", "MongoDB", "Express.js"],
+    "Stack 3": ["Ruby", "Ruby on Rails", "PostgreSQL", "HTML", "CSS"]
+  },
+  "Data Science": {
+    "Stack 1": ["Python", "NumPy", "Pandas", "Matplotlib", "Scikit-Learn"],
+    "Stack 2": ["R", "ggplot2", "dplyr", "tidyr", "caret"],
+    "Stack 3": ["Python", "TensorFlow", "Keras", "PyTorch", "Pandas"]
+  },
+  "Network Administration": {
+    "Stack 1": ["TCP/IP", "Routing", "Firewalls", "Security", "Cisco IOS"],
+    "Stack 2": ["Network Monitoring", "DNS", "DHCP", "Load Balancing", "VPN"],
+    "Stack 3": ["Linux", "Shell Scripting", "Wireshark", "TCPdump", "SNMP"]
+  }
+}
+

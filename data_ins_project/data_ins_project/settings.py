@@ -29,7 +29,8 @@ DEBUG = True
 if DEBUG:
     # Development static files configuration
     STATIC_URL = '/static/'
-    STATIC_ROOT = BASE_DIR / 'static'
+    STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),]
     # Some other development settings
     ALLOWED_HOSTS = ['*']
     CSRF_TRUSTED_ORIGINS = ["http://localhost:8000", "http://0.0.0.0:8000"]
@@ -51,7 +52,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'text_cutter',
     'palette_generator',
     'rest_framework',
     'api',
@@ -81,6 +81,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "main.context_processors.menu",
+                "main.context_processors.footer",
             ],
         },
     },
