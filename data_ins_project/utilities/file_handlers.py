@@ -2,7 +2,7 @@ import io
 import base64
 from PIL import Image
 from skimage.io import imread
-
+import json
 
 
 
@@ -48,3 +48,11 @@ def url_to_np(content):
 
 class Downloader:
     pass
+
+
+
+def json_parser(file):
+    with open(file, 'r') as f:
+        data = json.load(f)
+
+    return list(data.keys())

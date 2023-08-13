@@ -1,0 +1,98 @@
+{% extends 'index.html' %}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+<br>
+<hr>
+<div class="card">
+    <div class="card-body">
+
+    <h1>Palette API Documentation</h1>
+
+    <h2>Usage Examples</h2>
+    <p>To get a palette from an image, make a GET request with the parameters below:</p>
+    <pre>
+        <code>GET /api/palette_api</code>
+    </pre>
+    <p>The request data should be in JSON format and include params:</p>
+    <pre>
+<code>
+{
+    "image_url": string url,
+    "palette_size": string integer size,
+}
+</code>
+    </pre>
+    <p>The server's response will contain a list of hex codes.</p>
+<code>
+    <pre>
+        {
+            "colors": [
+                "#190a1c",
+                "#1c0b1e",
+                "#1d0c1f",
+                "#1e0c20",
+                "#220e23",
+                "#230e23",
+                "#240d25",
+                "#240d26",
+                "#250d26",
+                "#250d27"
+            ]
+        }
+    </pre>
+</code>
+    <h2>Code Example(python)</h2>
+        <pre>
+            <code class="python">
+import requests
+
+url = "https://data-insighter.netlify.app/api/palette_api"
+data = {
+    "image_url": "https://static.pexels.com/photos/36753/flower-purple-lical-blosso.jpg",
+    "palette_size": '10',
+}
+
+response = requests.get(url, params=data)
+if response.status_code == 200:
+    response = response.json()
+    print(response)
+else:
+    print("Request error:", response.status_code)
+            </code>
+        </pre>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Initialize highlight.js
+        document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+
+        // Initialize clipboard.js
+        var clipboard = new ClipboardJS('#copyButton', {
+            text: function() {
+                return `
+import requests
+
+url = "${url}"
+data = {
+    "image_url": "${data.image_url}",
+    "palette_size": "${data.palette_size}",
+}
+
+response = requests.get(url, params=data)
+if response.status_code == 200:
+    response = response.json()
+    print(response)
+else:
+    print("Request error:", response.status_code)
+                `;
+            }
+        });
+    });
+</script>
+{% endblock %}

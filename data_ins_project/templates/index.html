@@ -34,7 +34,7 @@
             <ul class="nav">
                 {% for parent_item in menu_items %}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="parentDropdown{{ forloop.counter }}" role="button"
+                        <a class="nav-link dropdown-toggle" href="{{ parent_item.link }}" id="parentDropdown{{ forloop.counter }}" role="button"
                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ parent_item }}
                         </a>
@@ -69,7 +69,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"></script>
 
 <!-- Footer -->
-<footer class="text-center text-lg-start text-white" style="background-color: #45526e; padding: 1rem 0;">
+<footer class="text-center text-lg-start text-white" style="background-color: #3f5fa4; padding: 1rem 0;">
     <!-- Grid container -->
     <div class="container p-4">
         <!-- Section: Links -->
@@ -108,18 +108,18 @@
 </footer>
 <!-- Footer -->
 <style>
-    /* Ваші поточні стилі */
+
     .btn {
         padding: .45rem 1.5rem .35rem;
     }
 
     .gradient-custom {
-        background: #c471f5;
-        background: -webkit-linear-gradient(to right, rgba(196, 113, 245, 1), rgba(250, 113, 205, 1));
-        background: linear-gradient(to right, rgba(196, 113, 245, 1), rgba(250, 113, 205, 1))
+        background: #a1c0e0;
+        background: -webkit-linear-gradient(to right, rgb(78, 72, 235), rgb(199, 102, 167));
+        background: linear-gradient(to right, rgba(196, 113, 245, 1), rgb(110, 69, 96))
     }
 
-    /* Додаткові стилі для toggle button */
+
     .navbar-toggler {
         border: none;
         background-color: transparent;
@@ -130,8 +130,8 @@
     }
 
     .navbar-toggler i {
-        font-size: 1.5rem; /* Змініть розмір за потребою */
-        font-weight: bold; /* Зробить іконку жирною */
+        font-size: 1.5rem;
+        font-weight: bold;
     }
 </style>
 </body>

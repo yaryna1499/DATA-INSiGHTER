@@ -11,7 +11,7 @@ class PaletteView(APIView):
     def get(self, request):
         image_url = request.query_params.get('image_url')
         response = requests.get(image_url)
-        palette_size = request.query_params.get('palette_size')
+        palette_size = int(request.query_params.get('palette_size'))
 
         if not image_url:
             return Response({'error': 'Bad request.'}, status=status.HTTP_400_BAD_REQUEST)

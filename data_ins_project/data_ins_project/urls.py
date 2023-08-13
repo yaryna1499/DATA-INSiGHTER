@@ -7,7 +7,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('', include('palette_generator.urls')),
-    path("api/", include("api.urls")),
+    path('', include("reco.urls")),
+    path('api/', include("api.urls"))
 ]
 
 if settings.DEBUG:

@@ -1,10 +1,6 @@
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from .views import *
-
-
-
+from .views import PaletteView
 
 urlpatterns = [
-    path("palette/", PaletteView.as_view(), name="api_palette"),
+    path("api_palette/", PaletteView.as_view(), name="api_palette"),
 ]

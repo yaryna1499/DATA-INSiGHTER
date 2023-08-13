@@ -6,7 +6,7 @@ imageio==2.31.1
 lazy_loader==0.3
 Markdown==3.4.4
 networkx==3.1
-numpy==1.25.1
+numpy
 packaging==23.1
 Pillow==10.0.0
 Pygments==2.15.1

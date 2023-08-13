@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'palette_generator',
     'rest_framework',
     'api',
+    'reco',
 ]
 
 MIDDLEWARE = [
