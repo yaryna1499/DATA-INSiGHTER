@@ -4,7 +4,7 @@ Collect quick insights from any type of data!
 
 ## Project Description
 
-Data Insighter is a web application that provides a variety of tools for extracting insights from data, such as images and text. It is still under development, but it already has a forum that allows users to discuss topics with other data enthusiasts. The project was created as a way to showcase my back-end and data science skills and to build a community of data lovers.
+Data Insighter is a web application that provides a variety of tools for extracting insights from data, such as images and text. It is still under development. The project was created as a way to showcase my back-end and data science skills and to build a community of data lovers.
 
 ## Tech Stack
 
